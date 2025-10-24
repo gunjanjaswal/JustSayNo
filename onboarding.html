@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to JustSayNo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 600px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    
+    .logo {
+      font-size: 72px;
+      margin-bottom: 24px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    h1 {
+      font-size: 36px;
+      color: #1a202c;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      color: #4b5563;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    
+    .feature-list {
+      text-align: left;
+      margin: 32px 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .feature-list li {
+      padding: 16px;
+      margin-bottom: 12px;
+      background: #f7fafc;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      color: #374151;
+    }
+    
+    .feature-list li span {
+      font-size: 24px;
+    }
+    
+    .setup-section {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      border-radius: 16px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    
+    .setup-section h2 {
+      font-size: 20px;
+      color: #92400e;
+      margin-bottom: 16px;
+    }
+    
+    .preference-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    
+    .btn {
+      flex: 1;
+      padding: 16px 24px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      background: white;
+      transition: all 0.2s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn.selected {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: #667eea;
+    }
+    
+    .btn-primary {
+      width: 100%;
+      padding: 18px 32px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 32px;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+    }
+    
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .footer {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">🛡️</div>
+    <h1>Welcome to JustSayNo!</h1>
+    <p class="subtitle">
+      Your new privacy guardian is ready to protect you from annoying cookie banners
+      and hidden tracking scripts.
+    </p>
+    
+    <ul class="feature-list">
+      <li>
+        <span>✅</span>
+        <div>Automatically clicks "Reject All" on cookie banners</div>
+      </li>
+      <li>
+        <span>🚀</span>
+        <div>Works on 1,000+ popular websites instantly</div>
+      </li>
+      <li>
+        <span>📊</span>
+        <div>Track how many times you've been protected</div>
+      </li>
+      <li>
+        <span>🤝</span>
+        <div>Community-powered filter lists that keep improving</div>
+      </li>
+    </ul>
+    
+    <div class="setup-section">
+      <h2>⚙️ One-Time Setup</h2>
+      <p>What's your default choice when you see a cookie banner?</p>
+      <div class="preference-buttons">
+        <button class="btn" id="rejectBtn" data-value="reject">
+          <div style="font-size: 24px; margin-bottom: 8px;">🚫</div>
+          Reject All
+        </button>
+        <button class="btn" id="necessaryBtn" data-value="necessary">
+          <div style="font-size: 24px; margin-bottom: 8px;">⚡</div>
+          Necessary Only
+        </button>
+      </div>
+    </div>
+    
+    <button class="btn-primary" id="finishBtn" disabled>
+      Let's Go! Start Protecting My Privacy
+    </button>
+    
+    <div class="footer">
+      You can always change this setting later in the extension popup.
+    </div>
+  </div>
+  
+  <script>
+    let selectedPreference = null;
+    
+    // Handle preference selection
+    document.getElementById('rejectBtn').addEventListener('click', () => {
+      selectPreference('reject');
+    });
+    
+    document.getElementById('necessaryBtn').addEventListener('click', () => {
+      selectPreference('necessary');
+    });
+    
+    function selectPreference(value) {
+      selectedPreference = value;
+      
+      // Update UI
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.classList.remove('selected');
+      });
+      
+      if (value === 'reject') {
+        document.getElementById('rejectBtn').classList.add('selected');
+      } else {
+        document.getElementById('necessaryBtn').classList.add('selected');
+      }
+      
+      // Enable finish button
+      document.getElementById('finishBtn').disabled = false;
+    }
+    
+    // Handle finish button
+    document.getElementById('finishBtn').addEventListener('click', async () => {
+      if (!selectedPreference) return;
+      
+      // Save preference
+      await chrome.storage.sync.set({
+        userPreference: selectedPreference,
+        onboardingCompleted: true
+      });
+      
+      // Close tab
+      window.close();
+    });
+    
+    // Pre-select "Reject All" as default
+    selectPreference('reject');
+  </script>
+</body>
+</html>

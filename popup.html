@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustSayNo</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <span class="shield">🛡️</span>
+        <h1>JustSayNo</h1>
+      </div>
+      <div class="tagline">Your Privacy Guardian</div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-container">
+      <div class="stat-card primary">
+        <div class="stat-value" id="monthlyClicks">0</div>
+        <div class="stat-label">Rejections This Month</div>
+      </div>
+      
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-value" id="totalClicks">0</div>
+          <div class="stat-label">Total Rejections</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="daysSinceInstall">0</div>
+          <div class="stat-label">Days Protected</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Button -->
+    <button class="btn btn-share" id="shareBtn">
+      <span class="icon">📊</span>
+      Share My Stats
+    </button>
+
+    <!-- Settings Section -->
+    <div class="settings-section">
+      <h2>Settings</h2>
+      
+      <div class="setting-item">
+        <label for="preference">Default Action:</label>
+        <select id="preference" class="select">
+          <option value="reject">Reject All</option>
+          <option value="necessary">Necessary Only</option>
+        </select>
+      </div>
+
+      <div class="setting-item">
+        <label class="checkbox-label">
+          <input type="checkbox" id="aggressiveMode" disabled>
+          <span>Aggressive Mode</span>
+          <span class="badge">COMING SOON</span>
+        </label>
+        <div class="setting-description">
+          Will block known tracking scripts (in development)
+        </div>
+      </div>
+
+      <div class="setting-item">
+        <label class="checkbox-label">
+          <input type="checkbox" id="showNotifications">
+          <span>Show Notifications</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn btn-secondary" id="reportBtn">
+        <span class="icon">🚩</span>
+        Report This Banner
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="version">v1.0.0</div>
+      <div class="links">
+        <a href="#" id="helpLink">Help</a>
+        <span class="separator">•</span>
+        <a href="#" id="feedbackLink">Feedback</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
