@@ -12,8 +12,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     // Initialize storage
     await chrome.storage.sync.set({
       userPreference: 'reject',
-      aggressiveMode: false,
-      showNotifications: true
+      aggressiveMode: false
     });
     
     await chrome.storage.local.set({
@@ -31,8 +30,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === 'BANNER_REJECTED') {
     handleBannerRejected(message, sender.tab);
-  } else if (message.type === 'REPORT_BANNER') {
-    handleBannerReport(message.data);
   } else if (message.type === 'GET_STATS') {
     getStats().then(sendResponse);
     return true; // Keep channel open for async response
@@ -63,47 +60,8 @@ async function handleBannerRejected(message, tab) {
     setTimeout(() => {
       chrome.action.setBadgeText({ text: '', tabId: tab?.id });
     }, 3000);
-    
-    // Show notification if enabled
-    const settings = await chrome.storage.sync.get(['showNotifications']);
-    if (settings.showNotifications) {
-      chrome.notifications?.create({
-        type: 'basic',
-        iconUrl: 'icons/icon48.png',
-        title: 'JustSayNo',
-        message: `Cookie banner rejected! Total this month: ${count}`,
-        priority: 0
-      });
-    }
   } catch (error) {
     console.error('[JustSayNo] Error handling banner rejection:', error);
-  }
-}
-
-// Handle banner report
-async function handleBannerReport(data) {
-  console.log('[JustSayNo] Banner reported:', data.url);
-  
-  try {
-    const result = await chrome.storage.local.get(['reportedBanners']);
-    const reportedBanners = result.reportedBanners || [];
-    
-    reportedBanners.push({
-      ...data,
-      reportedAt: new Date().toISOString()
-    });
-    
-    // Keep only last 50 reports
-    if (reportedBanners.length > 50) {
-      reportedBanners.shift();
-    }
-    
-    await chrome.storage.local.set({ reportedBanners });
-    
-    // In a real implementation, this would send to a server
-    console.log('[JustSayNo] Report saved locally. Total reports:', reportedBanners.length);
-  } catch (error) {
-    console.error('[JustSayNo] Error saving report:', error);
   }
 }
 

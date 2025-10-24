@@ -31,13 +31,11 @@ async function loadSettings() {
   try {
     const settings = await chrome.storage.sync.get([
       'userPreference',
-      'aggressiveMode',
-      'showNotifications'
+      'aggressiveMode'
     ]);
     
     document.getElementById('preference').value = settings.userPreference || 'reject';
     document.getElementById('aggressiveMode').checked = settings.aggressiveMode || false;
-    document.getElementById('showNotifications').checked = settings.showNotifications !== false;
   } catch (error) {
     console.error('Failed to load settings:', error);
   }
@@ -57,11 +55,6 @@ function setupEventListeners() {
     showToast('Aggressive mode coming soon!', 'info');
   });
   
-  // Notifications toggle
-  document.getElementById('showNotifications').addEventListener('change', async (e) => {
-    await chrome.storage.sync.set({ showNotifications: e.target.checked });
-  });
-  
   // Share button
   document.getElementById('shareBtn').addEventListener('click', shareStats);
   
@@ -71,13 +64,15 @@ function setupEventListeners() {
   // Help link
   document.getElementById('helpLink').addEventListener('click', (e) => {
     e.preventDefault();
-    chrome.tabs.create({ url: 'https://github.com/gunjanjaswal/JustSayNo/wiki' });
+    const mailtoUrl = 'mailto:hello@gunjanjaswal.me?subject=' + encodeURIComponent('JustSayNo - Help Request');
+    chrome.tabs.create({ url: mailtoUrl });
   });
   
   // Feedback link
   document.getElementById('feedbackLink').addEventListener('click', (e) => {
     e.preventDefault();
-    chrome.tabs.create({ url: 'https://github.com/gunjanjaswal/JustSayNo/issues' });
+    const mailtoUrl = 'mailto:hello@gunjanjaswal.me?subject=' + encodeURIComponent('JustSayNo - Feedback');
+    chrome.tabs.create({ url: mailtoUrl });
   });
 }
 
@@ -113,19 +108,18 @@ async function reportBanner() {
     // Get current tab
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     
-    // Inject script to report banner
-    await chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      func: () => {
-        if (typeof window.reportBanner === 'function') {
-          window.reportBanner();
-        } else {
-          alert('Please navigate to a page with a cookie banner to report it.');
-        }
-      }
-    });
+    const subject = encodeURIComponent('JustSayNo - Banner Report');
+    const body = encodeURIComponent(
+      `I found a cookie banner that JustSayNo doesn't handle:\n\n` +
+      `Website URL: ${tab.url}\n` +
+      `Page Title: ${tab.title}\n\n` +
+      `Please add support for this banner.\n\n` +
+      `Thank you!`
+    );
     
-    showToast('Thank you for reporting! 🚩');
+    const mailtoUrl = `mailto:hello@gunjanjaswal.me?subject=${subject}&body=${body}`;
+    chrome.tabs.create({ url: mailtoUrl });
+    showToast('Opening email to report banner... 📧');
   } catch (error) {
     console.error('Failed to report banner:', error);
     showToast('Failed to report banner', 'error');

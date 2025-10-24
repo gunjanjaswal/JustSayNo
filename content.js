@@ -235,21 +235,6 @@
     });
   }
 
-  // Report unhandled banner
-  window.reportBanner = function() {
-    const bannerInfo = {
-      url: window.location.href,
-      timestamp: Date.now(),
-      html: document.body.innerHTML.substring(0, 5000) // First 5000 chars
-    };
-    
-    chrome.runtime.sendMessage({
-      type: 'REPORT_BANNER',
-      data: bannerInfo
-    });
-    
-    alert('Thank you! This banner has been reported. Our community will work on adding support for it.');
-  };
 
   // Initialize and start observing
   initialize().then(() => {

@@ -176,12 +176,15 @@ All processing happens locally on your device.
 If you encounter issues:
 
 1. **Check the FAQ** in README.md
-2. **Search existing issues** on GitHub
-3. **Open a new issue** with:
-   - Your Chrome version
-   - Extension version
-   - Steps to reproduce the problem
-   - Any error messages from the console
+2. **GitHub Repository**: https://github.com/gunjanjaswal/JustSayNo/
+3. **Report Issues**: https://github.com/gunjanjaswal/JustSayNo/issues
+4. **Email Support**: hello@gunjanjaswal.me
+
+When reporting issues, include:
+- Your Chrome version
+- Extension version
+- Steps to reproduce the problem
+- Any error messages from the console
 
 ## Next Steps
 

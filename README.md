@@ -4,6 +4,15 @@
 
 JustSayNo is a Chrome extension that automatically navigates and clicks "Reject All" or "Necessary Only" on cookie banners, instead of just hiding them. No more cookie banner fatigue. No more accidentally accepting tracking scripts.
 
+---
+
+**🔗 Links:**
+- **GitHub Repository**: [https://github.com/gunjanjaswal/JustSayNo/](https://github.com/gunjanjaswal/JustSayNo/)
+- **Report Issues**: [https://github.com/gunjanjaswal/JustSayNo/issues](https://github.com/gunjanjaswal/JustSayNo/issues)
+- **Email**: [hello@gunjanjaswal.me](mailto:hello@gunjanjaswal.me)
+
+---
+
 ## ✨ Features
 
 ### Core Features
@@ -192,8 +201,8 @@ MIT License - See LICENSE file for details
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/gunjanjaswal/JustSayNo/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/gunjanjaswal/JustSayNo/discussions)
+- **GitHub Repository**: [https://github.com/gunjanjaswal/JustSayNo/](https://github.com/gunjanjaswal/JustSayNo/)
+- **Report Issues**: [https://github.com/gunjanjaswal/JustSayNo/issues](https://github.com/gunjanjaswal/JustSayNo/issues)
 - **Email**: [hello@gunjanjaswal.me](mailto:hello@gunjanjaswal.me)
 
 ---

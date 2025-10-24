@@ -185,9 +185,9 @@ We are committed to providing a welcoming and inspiring community for all.
 
 ## 📞 Questions?
 
-- **General questions**: Open a GitHub Discussion
+- **GitHub Repository**: https://github.com/gunjanjaswal/JustSayNo/
+- **Report Issues**: https://github.com/gunjanjaswal/JustSayNo/issues
 - **Security issues**: Email hello@gunjanjaswal.me
-- **Other**: Open an issue with the "Question" label
 
 ## 🙏 Thank You!
 
