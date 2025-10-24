@@ -61,18 +61,16 @@ function setupEventListeners() {
   // Report banner button
   document.getElementById('reportBtn').addEventListener('click', reportBanner);
   
-  // Help link
-  document.getElementById('helpLink').addEventListener('click', (e) => {
+  // Repository link
+  document.getElementById('repoLink').addEventListener('click', (e) => {
     e.preventDefault();
-    const mailtoUrl = 'mailto:hello@gunjanjaswal.me?subject=' + encodeURIComponent('JustSayNo - Help Request');
-    chrome.tabs.create({ url: mailtoUrl });
+    chrome.tabs.create({ url: 'https://github.com/gunjanjaswal/JustSayNo/' });
   });
   
-  // Feedback link
-  document.getElementById('feedbackLink').addEventListener('click', (e) => {
+  // Issues link
+  document.getElementById('issuesLink').addEventListener('click', (e) => {
     e.preventDefault();
-    const mailtoUrl = 'mailto:hello@gunjanjaswal.me?subject=' + encodeURIComponent('JustSayNo - Feedback');
-    chrome.tabs.create({ url: mailtoUrl });
+    chrome.tabs.create({ url: 'https://github.com/gunjanjaswal/JustSayNo/issues' });
   });
 }
 
