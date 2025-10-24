@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustSayNo - Screenshot Template</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .screenshot-container {
+      width: 1280px;
+      height: 800px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* Left side - Extension popup mockup */
+    .popup-mockup {
+      width: 400px;
+      background: white;
+      border-right: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .popup-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+    .popup-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .popup-header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 24px;
+    }
+
+    .stat-card {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .share-button {
+      margin: 0 24px 24px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Right side - Features */
+    .features-section {
+      flex: 1;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .features-section h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 16px;
+    }
+
+    .features-section .tagline {
+      font-size: 20px;
+      color: #6b7280;
+      margin-bottom: 40px;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+
+    .feature-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 6px;
+    }
+
+    .feature-content p {
+      font-size: 16px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="screenshot-container">
+    <!-- Left: Extension Popup -->
+    <div class="popup-mockup">
+      <div class="popup-header">
+        <h1>🛡️ JustSayNo</h1>
+        <p>Your Privacy Guardian</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">127</div>
+          <div class="stat-label">Rejections This Month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1,482</div>
+          <div class="stat-label">Total Rejections</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Total Rejections</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">45</div>
+          <div class="stat-label">Days Protected</div>
+        </div>
+      </div>
+
+      <button class="share-button">
+        📊 Share My Stats
+      </button>
+    </div>
+
+    <!-- Right: Features -->
+    <div class="features-section">
+      <h2>Automatically Reject Cookie Banners</h2>
+      <p class="tagline">Take back your privacy, one click at a time.</p>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-content">
+            <h3>Automatic Rejection</h3>
+            <p>Clicks "Reject All" on 1,000+ cookie banners automatically</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <div class="feature-content">
+            <h3>Track Your Privacy</h3>
+            <p>See exactly how many trackers you've blocked</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-content">
+            <h3>Privacy First</h3>
+            <p>No data collection, all processing happens locally</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-content">
+            <h3>Lightning Fast</h3>
+            <p>Works instantly on page load, no delays</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="badge">✅ Free & Open Source</div>
+    </div>
+  </div>
+
+  <script>
+    // Instructions for taking screenshot
+    console.log('📸 Screenshot Instructions:');
+    console.log('1. Press F11 to enter fullscreen mode');
+    console.log('2. Press Win+Shift+S (Windows) or Cmd+Shift+4 (Mac)');
+    console.log('3. Select the white container area');
+    console.log('4. Save as PNG or JPEG');
+    console.log('5. Resize to 1280x800 or 640x400 if needed');
+  </script>
+</body>
+</html>
