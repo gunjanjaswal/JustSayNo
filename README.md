@@ -10,6 +10,7 @@ JustSayNo is a Chrome extension that automatically navigates and clicks "Reject 
 - **GitHub Repository**: [https://github.com/gunjanjaswal/JustSayNo/](https://github.com/gunjanjaswal/JustSayNo/)
 - **Report Issues**: [https://github.com/gunjanjaswal/JustSayNo/issues](https://github.com/gunjanjaswal/JustSayNo/issues)
 - **Email**: [hello@gunjanjaswal.me](mailto:hello@gunjanjaswal.me)
+- **☕ Support Development**: [Buy Me a Coffee](https://www.buymeacoffee.com/gunjanjaswal)
 
 ---
 
@@ -205,8 +206,22 @@ MIT License - See LICENSE file for details
 - **Report Issues**: [https://github.com/gunjanjaswal/JustSayNo/issues](https://github.com/gunjanjaswal/JustSayNo/issues)
 - **Email**: [hello@gunjanjaswal.me](mailto:hello@gunjanjaswal.me)
 
+## ☕ Support Development
+
+If you find JustSayNo helpful, consider supporting its development:
+
+<a href="https://www.buymeacoffee.com/gunjanjaswal" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+Your support helps keep the extension free and open source for everyone! 🙏
+
 ---
 
 **Made with 🛡️ by privacy advocates, for privacy advocates.**
 
 *"The best 'Accept All' button is the one you never have to see."*
+
+---
+
+Made with love, a little caffeine, and zero questionable shortcuts by [Gunjan Jaswal](https://gunjanjaswal.me)
+
+© 2025 Gunjan Jaswal. All rights reserved.

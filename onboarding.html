@@ -145,12 +145,82 @@
       cursor: not-allowed;
     }
     
-    .footer {
+    .support-section {
       margin-top: 32px;
+      padding: 24px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 12px;
+      text-align: center;
+    }
+    
+    .support-text {
+      font-size: 16px;
+      color: #78350f;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    
+    .coffee-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFDD00;
+      color: #000000;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .coffee-btn:hover {
+      background: #FFED4E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .coffee-icon {
+      font-size: 20px;
+    }
+    
+    .footer {
+      margin-top: 24px;
       padding-top: 24px;
       border-top: 1px solid #e5e7eb;
       font-size: 14px;
       color: #6b7280;
+    }
+    
+    .author-footer {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #f3f4f6;
+      font-size: 13px;
+      color: #9ca3af;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .author-footer a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    
+    .author-footer a:hover {
+      color: #764ba2;
+      text-decoration: underline;
+    }
+    
+    .copyright {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #d1d5db;
+      font-style: normal;
     }
   </style>
 </head>
@@ -201,57 +271,26 @@
       Let's Go! Start Protecting My Privacy
     </button>
     
+    <div class="support-section">
+      <p class="support-text">☕ Enjoying JustSayNo? Support the development!</p>
+      <a href="https://www.buymeacoffee.com/gunjanjaswal" target="_blank" class="coffee-btn">
+        <span class="coffee-icon">☕</span>
+        Buy Me a Coffee
+      </a>
+    </div>
+    
     <div class="footer">
       You can always change this setting later in the extension popup.
     </div>
+    
+    <div class="author-footer">
+      Made with love, a little caffeine, and zero questionable shortcuts by 
+      <a href="https://gunjanjaswal.me" target="_blank">Gunjan Jaswal</a>
+      <br>
+      <span class="copyright">© 2025 Gunjan Jaswal. All rights reserved.</span>
+    </div>
   </div>
   
-  <script>
-    let selectedPreference = null;
-    
-    // Handle preference selection
-    document.getElementById('rejectBtn').addEventListener('click', () => {
-      selectPreference('reject');
-    });
-    
-    document.getElementById('necessaryBtn').addEventListener('click', () => {
-      selectPreference('necessary');
-    });
-    
-    function selectPreference(value) {
-      selectedPreference = value;
-      
-      // Update UI
-      document.querySelectorAll('.btn').forEach(btn => {
-        btn.classList.remove('selected');
-      });
-      
-      if (value === 'reject') {
-        document.getElementById('rejectBtn').classList.add('selected');
-      } else {
-        document.getElementById('necessaryBtn').classList.add('selected');
-      }
-      
-      // Enable finish button
-      document.getElementById('finishBtn').disabled = false;
-    }
-    
-    // Handle finish button
-    document.getElementById('finishBtn').addEventListener('click', async () => {
-      if (!selectedPreference) return;
-      
-      // Save preference
-      await chrome.storage.sync.set({
-        userPreference: selectedPreference,
-        onboardingCompleted: true
-      });
-      
-      // Close tab
-      window.close();
-    });
-    
-    // Pre-select "Reject All" as default
-    selectPreference('reject');
-  </script>
+  <script src="onboarding.js"></script>
 </body>
 </html>
